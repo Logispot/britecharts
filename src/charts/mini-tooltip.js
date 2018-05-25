@@ -85,7 +85,15 @@ define(function(require){
 
             // formats
             numberFormat = NUMBER_FORMAT,
-            valueFormatter = (value) => d3Format.format(numberFormat)(value),
+            valueFormatter = function valueFormatter(value) {
+                if (numberFormat == '건') {
+                    return d3Format.format(',d')(value)+'건';
+                } else if (numberFormat == '원') {
+                    return d3Format.format(',d')(value)+'원';
+                } else {
+                    return d3Format.format(numberFormat)(value);
+                }
+            },
 
             chartWidth,
             chartHeight,
