@@ -249,7 +249,13 @@ define(function(require){
                 return 0;
             }
             if (numberFormat !== null) {
-                chosenValueFormatter = d3Format.format(numberFormat);
+                if (numberFormat == '건') {
+                    return d3Format.format(',d')(value)+'건';
+                } else if (numberFormat == '원') {
+                    return d3Format.format(',d')(value)+'원';
+                } else {
+                    return d3Format.format(numberFormat)(value);
+                }
             } else if (isInteger(value)) {
                 chosenValueFormatter = formatIntegerValue;
             }
