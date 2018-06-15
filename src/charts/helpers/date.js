@@ -4,6 +4,15 @@ define(function (require) {
     const d3Format = require('d3-format');
     let idCounter = 0;
 
+    const localeTimeMap = {
+        minute: {minute:'numeric'},
+        hour: {hour:'numeric'},
+        day: {day: 'numeric'},
+        daymonth: {day: 'numeric', month:'short'},
+        month: {month: 'short'},
+        year: {year: 'numeric'}
+    };
+
     /**
      * Calculates percentage of value from total
      * @param  {String}  date    Date
