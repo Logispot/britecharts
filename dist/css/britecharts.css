@@ -7,6 +7,20 @@
   font-family: 'Karla', sans-serif;
   -webkit-font-smoothing: antialiased; }
 
+.select-disable {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently supported by Chrome and Opera */ }
+
 .line-load-state .chart-filter,
 .stacked-area-load-state .chart-filter,
 .donut-load-state .chart-filter,
@@ -135,7 +149,7 @@
   stroke-linecap: round;
   stroke-linejoin: round; }
   .sparkline .line {
-    stroke-width: 4; }
+    stroke-width: 2; }
   .sparkline .sparkline-circle {
     fill: #ff584c;
     stroke-width: 0;
@@ -212,3 +226,12 @@
 
 .brush-chart .axis path {
   display: none; }
+
+.bullet-chart .marker-line {
+  shape-rendering: crispEdges; }
+
+.bullet-chart .axis-group path {
+  display: none; }
+
+.bullet-chart .bullet-title {
+  font-size: 16px; }
