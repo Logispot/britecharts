@@ -298,7 +298,7 @@ define(function(require){
          * position
          */
         function resetSizeAndPositionPointers() {
-            tooltipHeight = 48;
+            tooltipHeight = 24;
             ttTextY = 0;
             ttTextX = 0;
         }
