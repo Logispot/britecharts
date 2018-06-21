@@ -538,7 +538,6 @@ define(function(require){
             }
 
             cleanContent();
-            updateTitle(dataPoint);
             resetSizeAndPositionPointers();
             topics.forEach(updateTopicContent);
         }
