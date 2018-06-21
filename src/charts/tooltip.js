@@ -77,8 +77,8 @@ define(function(require){
             tooltipDivider,
             tooltipBody,
             tooltipTitle,
-            tooltipWidth = 250,
-            tooltipHeight = 48,
+            tooltipWidth = 120,
+            tooltipHeight = 24,
             tooltipBorderRadius = 3,
             ttTextX = 0,
             ttTextY = 37,
@@ -208,23 +208,6 @@ define(function(require){
                 .style('stroke', borderStrokeColor)
                 .style('stroke-width', 1);
 
-            tooltipTitle = tooltipTextContainer
-              .append('text')
-                .classed('tooltip-title', true)
-                .attr('x', -tooltipWidth / 4 + 16)
-                .attr('dy', '.35em')
-                .attr('y', 16)
-                .style('fill', titleFillColor);
-
-            tooltipDivider = tooltipTextContainer
-              .append('line')
-                .classed('tooltip-divider', true)
-                .attr('x1', -tooltipWidth / 4 + 16)
-                .attr('x2', 265)
-                .attr('y1', 31)
-                .attr('y2', 31)
-                .style('stroke', borderStrokeColor);
-
             tooltipBody = tooltipTextContainer
               .append('g')
                 .classed('tooltip-body', true)
@@ -316,7 +299,7 @@ define(function(require){
          */
         function resetSizeAndPositionPointers() {
             tooltipHeight = 48;
-            ttTextY = 37;
+            ttTextY = 0;
             ttTextX = 0;
         }
 
@@ -334,7 +317,7 @@ define(function(require){
                 tooltipRightText,
                 elementText;
 
-            tooltipLeftText = topic.topicName || name;
+            tooltipLeftText = '';
             tooltipRightText = getValueText(topic);
 
             elementText = tooltipBody
@@ -368,15 +351,6 @@ define(function(require){
             // Not sure if necessary
             tooltipRight.attr('x', tooltipWidth - tooltipRight.node().getBBox().width - 10 - tooltipWidth / 4)
 
-            tooltipBody
-                .append('circle')
-                .classed('tooltip-circle', true)
-                .attr('cx', 23 - tooltipWidth / 4)
-                .attr('cy', (ttTextY + circleYOffset))
-                .attr('r', 5)
-                .style('fill', colorMap[name])
-                .style('stroke-width', 1);
-
             ttTextY += textHeight + 7;
         }
 
@@ -401,9 +375,6 @@ define(function(require){
                 .duration(mouseChaseDuration)
                 .ease(ease)
                 .attr('transform', `translate(${tooltipX}, ${tooltipY})`);
-
-            tooltipDivider
-                .attr('x2', tooltipWidth - 60);
         }
 
         /**
