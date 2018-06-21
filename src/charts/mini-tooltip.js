@@ -183,7 +183,7 @@ define(function(require){
          */
         function getMaxLengthLine(...texts) {
             let textSizes = texts.filter(x => !!x)
-                .map(x => x.node().getBBox().width);
+                .map(x => (x.node().getBBox().width) ? x.node().getBBox().width : 121);
 
             return d3Array.max(textSizes);
         }
